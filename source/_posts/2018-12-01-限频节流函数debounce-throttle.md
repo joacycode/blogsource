@@ -17,8 +17,8 @@ tags:
 {% codeblock lang:js%}
 bodyOffsetTop <= docScrollTop + viewHeight
 {% endcodeblock %}
-
 具体实现代码：
+<!--more-->
 ```javascript
 //递归方式获得元素距离文档顶部真实高度，不受父元素position定位影响
 const bodyOffsetTop = (el)=>{
