@@ -4,7 +4,7 @@ date: {{ date }}
 categories: 
 tags:
 ---
-{% codeblock %}
-{% endcodeblock %}
+```javascript
+```
 
 >原创内容，欢迎交流转载请注明出处
