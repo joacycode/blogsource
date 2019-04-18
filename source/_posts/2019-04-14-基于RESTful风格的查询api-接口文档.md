@@ -1,5 +1,5 @@
 ---
-title: 基于RESTful风格的查询api设计-接口文档初稿
+title: 基于REST风格的查询api设计文档初稿
 date: 2019-04-14 13:59:31
 categories:
 tags:
@@ -8,17 +8,17 @@ tags:
 至于为什么不统一使用GraphQL，每个公司的大背景下会有每种不同的实际情况，满足多端的需求又尽快的让服务端和客户端每个人都熟悉GraphQL，成本比较大；当然在有条件的额情况下统一使用GraphQL是最好的。所以我们就想用中间层和传统的REST来改造现有数据接口，又符合GraphQL的思想，在客户端的查询条件下，满足合并模块数据、过滤筛选冗余数据，选取特定数据的需求。
 
 
-## 查询符号
+## 查询附加符号
 | 符号 | 定义  |
 | ------ | ------ |
 | $& | 与，默认 |
 | $&#124; | 或，条件满足其一即可 |
-| $^ | 非，剔除此条件下的数据 |
-| $< | 小于，适用于数值  |
-| $> | 大于，适用于数值  |
-| $<= | 小于等于，适用于数值 |
-| $>= | 大于等于，适用于数值  |
-| $<> | 区间，适用于数值  |
+| $^ | 非，剔除此条件下的当前数据 |
+| $< | 小于，适用于数值或者数组的长度  |
+| $> | 大于，适用于数值或者数组的长度  |
+| $<= | 小于等于，适用于数值或者数组的长度 |
+| $>= | 大于等于，适用于数值或者数组的长度  |
+| $<> | 区间，适用于数值或者数组的长度  |
 
 ## 查询参数
 ### interface [array]
@@ -41,8 +41,6 @@ tags:
     "functionId": "author",
     "clientVersion": "10.0.0",
   }
-},{
-  //...
 }]
 }
 ```
@@ -73,11 +71,7 @@ tags:
 
 ```json
 {
-  // 返回的原始数据为res
   "merge": {
-    // titles分组
-    // 整合res中id为'665,666'且content不为'img'的标题
-    // 且顺带看看有没有res中id为'667,668'且content为'skuid'或者'img'的标题，有就带着一起上车
     "titles": [{
       "id": "665,666",
       "$^content": "img"
@@ -85,17 +79,11 @@ tags:
       "id": "667,668",
       "content": ["skuid", "img"]
     }],
-    // skucards分组
-    // 整合res.des中type为5的子项目上车
     "skucards": {
       "des":{
         "type": "5"
       }
     },
-    // scrollers
-    // 整合res.des中img为xx.gov的所有子项目
-    // 或者整合res.des.leftStocks的数目大于100的
-    // 以第一个满足条件的为最终上车对象
     "scrollers": {
       "des":{
         "img": "xx.gov" 
@@ -105,10 +93,21 @@ tags:
           "$>=leftStock": "100"
         }
       }
-    },
+    }
   }
 }
 ```
+注意：返回的原始数据设为`res`  
+*titles分组*  
+包含`res`中id为`'665,666'`且content不为`'img'`的标题  
+且顺带看看有没有res中id为`'667,668'`且content为`'skuid'`或者`'img'`的标题，有就带着一起上车  
+*skucards分组*  
+包含`res.des`中type为5的子项目上车  
+*scrollers分组*  
+包含`res.des`中`img`为`xx.gov`的所有子项目  
+或包含 `res.des.leftStocks`的数目大于100的  
+以第一个满足条件的为最终上车对象  
+
 
 ### filter [object]
 过滤筛选模块，可包含正向、反向过滤数据，可在`filterWithoutMerge`中配置是否要在原始数据中排除已经整合出来的数据。
@@ -130,10 +129,6 @@ tags:
 ```json
 {
   "filter": {
-    // mayLikeProducts为数组
-    // 满足以下条件,选择保留子项，剔除满足条件的子项为"$^mayLikeProducts"
-    // 保留groupId小于8414500且shopId在024100和024112之间的子项目
-    // 或者保留groupName为'今日推荐'且shopName'戴尔商用商红专卖店'的子项目
     "mayLikeProducts":{  
       "$<groupId": "8414500",
       "$<<shopId": ["024100","024112"],
@@ -143,16 +138,13 @@ tags:
       }
     },
     "recommendProducts":{  
-      //recommendProducts为对象,满足以下条件,选择剔除或者保留自身
-      //保留库存大于等于1000的recommendProducts自身
+
       "$>=leftStocks": "1000" 
     },
     "$|":{
-      // 或者
-      // 保留headInfo，只要子项hotProducts不为0
-      // 保留mayLikeProducts，只要子项timeBegin大于1550163689000
+
       "headInfo": {
-        "$^hotProducts": "0"  //数值等于0或者数组长度为0
+        "$^hotProducts": "0" 
       },
       "mayLikeProducts": {
         "$>timeBegin": "1550163689000"  
@@ -161,6 +153,15 @@ tags:
   }
 }
 ```
+*mayLikeProducts*为数组满足以下条件,选择保留子项，剔除满足条件的子项为"$^mayLikeProducts"  
+保留`groupId`小于`8414500`且`shopId`在`024100`和`024112`之间的子项目  
+或者保留`groupName`为'今日推荐'且`shopName`为'戴尔商用商红专卖店'的子项目     
+
+*recommendProducts*为对象,满足以下条件,选择剔除或者保留自身    
+保留库存大于等于1000的`recommendProducts`自身，或者保留`headInfo`，只要子项`hotProducts`不为0  
+保留`mayLikeProducts`，只要子项`timeBegin`大于`1550163689000`
+
+
 以下这种情况，就是过滤掉自身。
 
 ```json
