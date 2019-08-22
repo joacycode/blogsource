@@ -3,12 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: weeklyNote
+prefixTitle: weekly
+viTitle: Note
 subtitle: i'm a zero but want to be a hero
 description: 始于技术 终于生活
 author: zhangxiao
 language: zh-CN
 timezone: UTC
+photo: 'https://avatars3.githubusercontent.com/u/16070401?s=60&v=4'
+myname: '厂长大人'
+slogan: 'Get busy living or get busy dying'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'

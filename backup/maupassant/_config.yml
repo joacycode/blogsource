@@ -73,10 +73,11 @@ menu:
 
 
 widgets: ## Six widgets in sidebar provided: search, category, tag, recent_posts, rencent_comments and links.
+  - photo
   - search
-  - category
-  - tag
   - recent_posts
+  - category
+  # - tag
   - recent_comments
   - links
 
