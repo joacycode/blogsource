@@ -45,7 +45,7 @@ a, button.submit {
     transition: all .1s ease-in;
 }
 a:hover, a:active {
-    color: #444;
+    color: #009A61;
 }
 a:focus {
     outline:auto;
@@ -80,7 +80,7 @@ div {
             }
         }
         .description {
-            margin: .2em 0 0;
+            margin: 15px 0 0;
             color: #999;
         }
         
@@ -119,7 +119,7 @@ div {
         margin-bottom: 30px;
         &.widget-info{
           background: #f6f6f6;
-          padding: 10px 0;
+          padding: 20px 0 10px;
         }
         .widget-title {
             color: #6E7173;
@@ -144,6 +144,7 @@ div {
             line-height: 25px;
           }
           p.myname{
+            margin-top: 10px;
             text-align: center;
             color: #009A61;
             font-size: 14px;
@@ -152,7 +153,7 @@ div {
           p.slogan{
             text-align: center;
             font-size: 12px;
-            color: #555;
+            color: #333;
             border-radius: 2px;
           }
         }
@@ -296,7 +297,7 @@ div {
         clear: left;
         font-size: 15px;
         line-height: 1.77;
-        color: #444;
+        color: #333;
         padding-top: 15px;
         text-align: justify;
         text-justify: distribute;
@@ -323,12 +324,11 @@ div {
                 font-family: Menlo, Consolas, monospace !important;
             }
             a {
-                color: #01579f;
+                color: #009A61;
                 padding-bottom: 2px;
                 word-break: normal;
-                &:hover {
-                    text-decoration: underline;
-                }
+                text-decoration: underline;
+                cursor: pointer;
             }
         }
         .caption {
@@ -361,7 +361,7 @@ div {
                 display: inline-block;
                 margin: 0 5px;
                 padding: 0px 5px;
-                background: #f7f8f8;
+                background: #282c34;
                 font-family: Menlo, Consolas, monospace !important;
             }
             a {
@@ -407,7 +407,7 @@ div {
         text-align: center;
         &:hover {
             background: #F8F8F8;
-            border-bottom-color: #D26911;
+            border-bottom-color: #009A61;
         }
         &.prev {
             float: left;
@@ -428,7 +428,7 @@ div {
     }
     .current {
         background: #F8F8F8;
-        border-bottom-color: #D26911;
+        border-bottom-color: #009A61;
     }
     .space {
         border: none;
@@ -875,8 +875,8 @@ pre {
 /* read more*/
 .readmore a {
     font-size: 14px;
-    color: #fff;
-    background: #009A61;
+    background: #fff;
+    color: #009A61;
     margin: -10px 0;
     padding: 6px 10px;
     border-radius: 5px;
@@ -887,18 +887,18 @@ pre {
         padding-left: 0.3em;
     }
     &:hover {
-        background: #F8F8F8;
-        border-bottom-color: #D26911;
+      color: #fff;
+      background: #009A61;
     }
 }
 
 /* syntax highlight*/
 figure.highlight,
 .codeblock {
-    background:     #f7f8f8;
+    background:     #282c34;
     margin:         10px 0;
-    line-height:    1.1em;
-    color:          #333;
+    line-height:    1.5em;
+    color:          #abb2bf;
     padding-top:    15px;
     overflow:       hidden;
 
@@ -932,10 +932,10 @@ figure.highlight,
     }
     // Meta bar which contains name of the file and his link
     figcaption {
-        font-size:     13px;
+        font-size:     14px;
         padding:       0 15px 20px;
         margin:        0;
-        background:    #f7f8f8;
+        background:    #282c34;
         color:         #999999;
 
         a {
@@ -945,7 +945,7 @@ figure.highlight,
     }
     // Gutter which contains line numbers
     .gutter {
-        background:   #f7f8f8;
+        background:   #282c34;
         border-right: 1px solid #e6e6e6;
         padding:      0.3em 15px;
     }
@@ -963,7 +963,7 @@ figure.highlight,
     // All lines in gutter and code container
     .line {
         height:    1.3em;
-        font-size: 13px;
+        font-size: 14px;
     }
 }
 
@@ -981,13 +981,39 @@ figure.highlight,
 .highlight {
     // General
     .comment {
-        color: #969896;
+        color: #5c6370;
     }
     .string {
-        color: #183691;
+        color: #98c379;
     }
     .keyword {
-        color: #a71d5d;
+        color: #c678dd;
+    }
+    &.javascript {
+      .built_in,
+      .title {
+          color: #61aeee;
+      }
+      .javadoc {
+          color: #5c6370;
+      }
+      .tag,
+      .javadoctag {
+          color: #a71d5d;
+      }
+      .tag .title {
+          color: #61aeee;
+      }
+      .regexp {
+          color: #df5000;
+      }
+      .literal,
+      .number {
+          color: #d19a66;
+      }
+      .function{
+        color: #61aeee
+      }
     }
     // ApacheConf
     &.apacheconf .code {
@@ -1017,16 +1043,16 @@ figure.highlight,
             color: #0086b3;
         }
         .variable {
-            color: #333;
+            color: #abb2bf;
         }
         .title {
-            color: #795da3;
+            color: #61aeee;
         }
     }
     // coffescript
     &.coffeescript .code {
         .title {
-            color: #795da3;
+            color: #61aeee;
         }
         .literal,
         .built_in,
@@ -1053,7 +1079,7 @@ figure.highlight,
             color: #a71d5d;
         }
         .title {
-            color: #795da3;
+            color: #61aeee;
         }
         .number,
         .built_in {
@@ -1064,10 +1090,10 @@ figure.highlight,
     &.cs .code {
         .preprocessor,
         .preprocessor .keyword {
-            color: #333;
+            color: #abb2bf;
         }
         .title {
-            color: #795da3;
+            color: #61aeee;
         }
         .number,
         .built_in {
@@ -1089,17 +1115,17 @@ figure.highlight,
         .hexcolor,
         .number,
         .function {
-            color: #0086b3;
+            color: #d19a66;
         }
         .attr_selector,
         .value {
-            color: #333;
+            color: #abb2bf;
         }
         .id,
         .class,
         .pseudo,
         .selector-pseudo {
-            color: #795da3;
+            color: #61aeee;
         }
         .tag,
         .selector-tag {
@@ -1110,7 +1136,7 @@ figure.highlight,
     &.diff .code {
         .chunk,
         .meta {
-            color: #795da3;
+            color: #61aeee;
             font-weight: bold;
         }
         .addition {
@@ -1126,7 +1152,7 @@ figure.highlight,
     &.http .code {
         .attribute,
         .attr {
-            color: #183691;
+            color: #98c379;
         }
         .literal {
             color: #0086b3;
@@ -1139,7 +1165,7 @@ figure.highlight,
     &.ini .code {
         .title,
         .section {
-            color: #795da3;
+            color: #61aeee;
         }
         .setting,
         .attr {
@@ -1147,13 +1173,13 @@ figure.highlight,
         }
         .value,
         .keyword {
-            color: #333;
+            color: #abb2bf;
         }
     }
     // JAVA
     &.java .code {
         .title {
-            color: #795da3;
+            color: #61aeee;
         }
         .javadoc {
             color: #969896;
@@ -1164,7 +1190,7 @@ figure.highlight,
             color: #a71d5d;
         }
         .number {
-            color: #0086b3;
+            color: #d19a66;
         }
         .params {
             color: #1d3e81;
@@ -1174,30 +1200,33 @@ figure.highlight,
     &.js .code {
         .built_in,
         .title {
-            color: #795da3;
+            color: #61aeee;
         }
         .javadoc {
-            color: #969896;
+            color: #5c6370;
         }
         .tag,
         .javadoctag {
             color: #a71d5d;
         }
         .tag .title {
-            color: #333;
+            color: #61aeee;
         }
         .regexp {
             color: #df5000;
         }
         .literal,
         .number {
-            color: #0086b3;
+            color: #d19a66;
+        }
+        .function{
+          color: #61aeee
         }
     }
     // JSON
     &.json .code {
         .attribute {
-            color: #183691;
+            color: #98c379;
         }
         .number,
         .literal {
@@ -1207,10 +1236,10 @@ figure.highlight,
     // Makefile
     &.mak .code {
         .constant {
-            color: #333;
+            color: #abb2bf;
         }
         .title {
-            color: #795da3;
+            color: #61aeee;
         }
         .keyword,
         .meta-keyword {
@@ -1226,7 +1255,7 @@ figure.highlight,
         .blockquote,
         .quote,
         .section {
-            color: #183691;
+            color: #98c379;
         }
         .link_reference,
         .symbol,
@@ -1249,10 +1278,10 @@ figure.highlight,
             color: #0086b3;
         }
         .regexp {
-            color: #183691;
+            color: #98c379;
         }
         .variable {
-            color: #333;
+            color: #abb2bf;
         }
     }
     // Objective-C
@@ -1266,10 +1295,10 @@ figure.highlight,
             }
         }
         .meta-string {
-            color: #183691;
+            color: #98c379;
         }
         .title {
-            color: #795da3;
+            color: #61aeee;
         }
         .literal,
         .number,
@@ -1280,10 +1309,10 @@ figure.highlight,
     // Perl
     &.perl .code {
         .sub {
-            color: #795da3;
+            color: #61aeee;
         }
         .title {
-            color: #795da3;
+            color: #61aeee;
         }
         .regexp {
             color: #df5000;
@@ -1303,7 +1332,7 @@ figure.highlight,
             color: #0086b3;
         }
         .title {
-            color: #795da3;
+            color: #61aeee;
         }
     }
     // Python
@@ -1311,7 +1340,7 @@ figure.highlight,
         .decorator,
         .title,
         .meta {
-            color: #795da3;
+            color: #61aeee;
         }
         .number {
             color: #0086b3;
@@ -1321,7 +1350,7 @@ figure.highlight,
     &.ruby .code {
         .parent,
         .title {
-            color: #795da3;
+            color: #61aeee;
         }
         .prompt,
         .constant,
@@ -1344,14 +1373,14 @@ figure.highlight,
     &.xml,
     &.html {
         .tag {
-            color: #333;
+            color: #abb2bf;
         }
         .value {
-            color: #183691;
+            color: #98c379;
         }
         .attribute,
         .attr {
-            color: #795da3;
+            color: #61aeee;
         }
         .title,
         .name {
@@ -1361,7 +1390,7 @@ figure.highlight,
     // Puppet
     &.puppet {
         .title {
-            color: #795da3;
+            color: #61aeee;
         }
         .function {
             color: #0086b3;
@@ -1394,7 +1423,7 @@ figure.highlight,
         .selector-id,
         .selector-class,
         .selector-tag {
-            color: #795da3;
+            color: #61aeee;
         }
     }
     // SCSS
@@ -1411,7 +1440,7 @@ figure.highlight,
             color: #0086b3;
         }
         .variable {
-            color: #333;
+            color: #abb2bf;
         }
         .built_in {
             color: #df5000;
@@ -1422,7 +1451,7 @@ figure.highlight,
         .preprocessor,
         .selector-class,
         .selector-id {
-            color: #795da3;
+            color: #61aeee;
         }
         .tag,
         .selector-tag {
@@ -1451,7 +1480,7 @@ figure.highlight,
         .selector-id,
         .selector-pseudo,
         .selector-class {
-            color: #795da3;
+            color: #61aeee;
         }
     }
     // Go
@@ -1470,7 +1499,7 @@ figure.highlight,
             color: #a71d5d;
         }
         .title {
-            color: #795da3;
+            color: #61aeee;
         }
         .built_in,
         .number,
@@ -1489,7 +1518,7 @@ figure.highlight,
         .type,
         .literal,
         .meta {
-            color: #183691;
+            color: #98c379;
         }
         .number {
             color: #0086b3;
@@ -1565,12 +1594,20 @@ figure.highlight,
 
 /* table*/
 table {
-    margin: auto auto 15px;
+    margin: auto auto 50px;
     width: 100%;
     background: transparent;
     border-collapse: collapse;
     border-spacing: 0;
     text-align: left;
+    thead{
+      background: #009A61;
+      color: #fff;
+      border-bottom: none;
+      tr th{
+        border: none;
+      }
+    }
     th {
         font-weight: bold;
         padding: 5px 10px;
@@ -1581,7 +1618,7 @@ table {
     }
     tr {
         &:nth-child(2n) {
-            background: #f7f8f8;
+            background: rgba(217, 245, 234, 0.933);
         }
     }
 }
@@ -1760,4 +1797,82 @@ em.search-keyword {
     li {
         margin: 8px 0;
     }
+}
+
+// highlight cover
+figure.highlight .code {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #abb2bf;
+  background: #282c34;
+  font-family: monospace;
+  .comment,
+  .quote {
+    color: #5c6370;
+    font-style: italic;
+  }
+
+  .doctag,
+  .keyword,
+  .formula {
+    color: #c678dd;
+  }
+
+  .section,
+  .name,
+  .selector-tag,
+  .deletion,
+  .subst {
+    color: #e06c75;
+  }
+
+  .literal {
+    color: #56b6c2;
+  }
+
+  .string,
+  .regexp,
+  .addition,
+  .attribute,
+  .meta-string {
+    color: #98c379;
+  }
+
+  .built_in,
+  .class .title {
+    color: #e6c07b;
+  }
+
+  .attr,
+  .variable,
+  .template-variable,
+  .type,
+  .selector-class,
+  .selector-attr,
+  .selector-pseudo,
+  .number {
+    color: #d19a66;
+  }
+
+  .symbol,
+  .bullet,
+  .link,
+  .meta,
+  .selector-id,
+  .title {
+    color: #61aeee;
+  }
+
+  .emphasis {
+    font-style: italic;
+  }
+
+  .strong {
+    font-weight: bold;
+  }
+
+  .link {
+    text-decoration: underline;
+  }
 }

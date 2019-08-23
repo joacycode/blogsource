@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-prefixTitle: weekly
-viTitle: Note
-subtitle: Get busy living Or Get busy dying 
+prefixTitle: coding
+viTitle: Master
+subtitle: 原谅走过的那些曲折，原来留下的都是真的
 description: 始于技术 终于生活
 author: zhangxiao
 language: zh-CN
 timezone: UTC
-photo: 'https://avatars2.githubusercontent.com/u/16070401?s=400&v=4'
+photo: 'https://img20.360buyimg.com/ee/jfs/t27454/222/2096395420/282307/5767f3e1/5bf6c424N9b90570a.jpg'
 myname: '厂长大人'
-slogan: 'Zero To Hero'
+slogan: 'Get Busy Living Or Dying'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -44,8 +44,8 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: false
-  tab_replace:
+  auto_detect: true
+  tab_replace: true
   
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
