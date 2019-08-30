@@ -361,7 +361,6 @@ div {
                 display: inline-block;
                 margin: 0 5px;
                 padding: 0px 5px;
-                background: #282c34;
                 font-family: Menlo, Consolas, monospace !important;
             }
             a {
@@ -1594,7 +1593,7 @@ figure.highlight,
 
 /* table*/
 table {
-    margin: auto auto 50px;
+    margin: auto auto 15px;
     width: 100%;
     background: transparent;
     border-collapse: collapse;
