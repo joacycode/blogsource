@@ -3,16 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-prefixTitle: coding
-viTitle: Master
+prefixTitle: As
+viTitle: zero
+title: Aszero
 subtitle: 原谅走过的那些曲折，原来留下的都是真的
 description: 始于技术 终于生活
-author: zhangxiao
+author: 厂长大人
 language: zh-CN
 timezone: UTC
 photo: 'https://img20.360buyimg.com/ee/jfs/t27454/222/2096395420/282307/5767f3e1/5bf6c424N9b90570a.jpg'
-myname: '厂长大人'
-slogan: 'Get Busy Living Or Dying'
+myname: 厂长大人
+slogan: Zero to Hero
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
