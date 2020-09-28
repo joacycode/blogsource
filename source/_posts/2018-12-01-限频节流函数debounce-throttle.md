@@ -5,6 +5,7 @@ categories: js
 tags: 
  - debounce
  - throttle
+toc: true
 ---
 
 `lodash`的function模块里有两个方法，`debounce` 和 `throttle`，可以做节流限频使用，为在某些特定的环境下做必要的优化。
