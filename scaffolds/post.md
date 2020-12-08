@@ -1,10 +1,10 @@
 ---
 title: {{ title }}
 date: {{ date }}
-categories: 
-tags:
+categories: categories
+tags: tag
+toc: true
 ---
-```javascript
-```
+
 
 >原创内容，欢迎交流转载请注明出处
