@@ -1,5 +1,5 @@
 ---
-title: 基于REST风格的查询api的构思设计
+title: 基于REST风格的查询API的DSL设计[github回音壁]
 date: 2019-04-14 13:59:31
 categories:
 tags:

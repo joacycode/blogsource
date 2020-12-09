@@ -11,15 +11,19 @@ toc: true
 `lodash`的function模块里有两个方法，`debounce` 和 `throttle`，可以做节流限频使用，为在某些特定的环境下做必要的优化。
 这两个方法了解原理后也可以自己去实现。
 
+<!--more-->
+
 ### 场景一 曝光埋点
 在一个多屏长度的页面中，A模块的A元素在出现在屏幕可视区域时候（即曝光）触发埋点事件，随即上报相应参数。
 思路：A模块A元素距离文档顶部的高度是固定值设为`bodyOffsetTop`，添加onscroll事件到window上，通过监听滚动事件，不断计算此时被卷入上去的文档高度`docScrollTop`,假设屏幕可视区域的高度为`viewHeight`。
 当以下条件成立的时候，我们就认为该元素是出于可曝光的区域的。
-{% codeblock lang:js%}
+
+```js
 bodyOffsetTop <= docScrollTop + viewHeight
-{% endcodeblock %}
+```
+
 具体实现代码：
-<!--more-->
+
 ```javascript
 //递归方式获得元素距离文档顶部真实高度，不受父元素position定位影响
 const bodyOffsetTop = (el)=>{
@@ -98,7 +102,7 @@ $el.addEventListener('compositionend', function(e){
 *解决思路：* 用户输入间隔期间或者离开之前进行检测。
 
 
-### throttle & debounce
+### Lodash中的throttle & debounce
 [debounce](https://www.lodashjs.com/docs/4.17.5.html#debounce)  限频
 简单理解：在限定的时间内如果有新触发，那么上一次的触发无效，限时重新计算。限定的时间无触发或者大于限定的时间触发，都会按照正常触发执行。
 
@@ -137,4 +141,48 @@ $el.addEventListener('keyup',_.debounce((e)=>{
   }
 },500))
 ```
+
+
+### 手写实现throttle & debounce
+
+#### 实现一个throttle节流函数
+
+```js
+//节流就是保证一段时间内只执行一次核心代码
+function throttle(fn, interval = 500) { 
+  let run = true 
+  return function () { 
+    if (!run) return
+    run = false
+    //定时器执行完成才能执行下一次
+    setTimeout(() => { 
+      fn.apply(this, arguments); 
+      run = true; 
+    }, interval)
+  }
+}
+//调用举例
+document.addEventListener('click', throttle(fn,1000))
+```
+
+#### 实现一个debounce防抖函数 
+
+```js
+//防抖在一定时间段的连续函数调用，只让其执行一次
+function debounce(fn, interval = 500) { 
+  let timeout = null; 
+  return function () { 
+    clearTimeout(timeout); 
+    // 每次触发 定时器重新计时
+    timeout = setTimeout(() => { 
+      fn.apply(this, arguments); 
+    }, interval); 
+  }; 
+}
+//调用举例
+document.addEventListener('click', debounce(fn,1000))
+```
+
+
+
 >原创内容，欢迎交流转载请注明出处

@@ -1,5 +1,5 @@
 ---
-title: dotjs+webpack分模块拼接渲染
+title: dotjs+webpack渲染研究
 date: 2019-02-15 11:35:01
 categories: dotjs
 tags:
@@ -164,4 +164,5 @@ import './assets/main.scss'
 
 #### 项目地址
 [https://github.com/joacycode/dot-webpack](https://github.com/joacycode/dot-webpack)
+
 >原创内容，欢迎交流转载请注明出处
